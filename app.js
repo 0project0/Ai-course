@@ -146,6 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Helper to extract Google Drive File ID
+    function getGoogleDriveId(url) {
+        if (!url) return null;
+        const match = url.match(/(?:id=|\/d\/)([a-zA-Z0-9_-]{25,50})/);
+        return match ? match[1] : null;
+    }
+
     // Load Specific Lesson
     function loadLesson(modIdx, lesIdx) {
         const module = COURSE_DATA.modules[modIdx];
@@ -172,11 +179,36 @@ document.addEventListener('DOMContentLoaded', () => {
             completeBtnText.textContent = 'تحديد كـ مكتمل';
         }
 
-        // Load Video
-        video.pause();
-        videoSource.src = lesson.videoUrl;
-        video.load();
-        playIcon.className = 'ri-play-fill';
+        // Load Video (Hybrid Google Drive & Custom Player)
+        const driveId = getGoogleDriveId(lesson.videoUrl);
+        const customControls = document.getElementById('customControls');
+        let driveFrame = document.getElementById('driveVideoFrame');
+
+        if (driveId) {
+            video.style.display = 'none';
+            if (customControls) customControls.style.display = 'none';
+            try { video.pause(); } catch(e) {}
+
+            if (!driveFrame) {
+                driveFrame = document.createElement('iframe');
+                driveFrame.id = 'driveVideoFrame';
+                driveFrame.setAttribute('allow', 'autoplay; fullscreen');
+                driveFrame.setAttribute('allowfullscreen', 'true');
+                driveFrame.style.cssText = 'width: 100%; height: 100%; border: none; border-radius: 16px; display: block;';
+                playerWrapper.appendChild(driveFrame);
+            }
+            driveFrame.style.display = 'block';
+            driveFrame.src = `https://drive.google.com/file/d/${driveId}/preview`;
+        } else {
+            if (driveFrame) driveFrame.style.display = 'none';
+            video.style.display = 'block';
+            if (customControls) customControls.style.display = 'flex';
+
+            video.pause();
+            videoSource.src = lesson.videoUrl;
+            video.load();
+            playIcon.className = 'ri-play-fill';
+        }
 
         // Update Navigation Buttons
         const flatList = getAllLessonsFlat();
@@ -501,4 +533,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Launch Application
     initCourse();
 });
-
