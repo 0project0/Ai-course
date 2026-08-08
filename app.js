@@ -189,17 +189,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (customControls) customControls.style.display = 'none';
             try { video.pause(); } catch(e) {}
 
+            let topShield = document.getElementById('driveTopShield');
+            if (!topShield) {
+                topShield = document.createElement('div');
+                topShield.id = 'driveTopShield';
+                topShield.className = 'drive-top-shield';
+                playerWrapper.appendChild(topShield);
+            }
+            topShield.style.display = 'block';
+
             if (!driveFrame) {
                 driveFrame = document.createElement('iframe');
                 driveFrame.id = 'driveVideoFrame';
+                driveFrame.className = 'drive-video-frame';
                 driveFrame.setAttribute('allow', 'autoplay; fullscreen');
                 driveFrame.setAttribute('allowfullscreen', 'true');
-                driveFrame.style.cssText = 'width: 100%; height: 100%; border: none; border-radius: 16px; display: block;';
                 playerWrapper.appendChild(driveFrame);
             }
             driveFrame.style.display = 'block';
             driveFrame.src = `https://drive.google.com/file/d/${driveId}/preview`;
         } else {
+            let topShield = document.getElementById('driveTopShield');
+            if (topShield) topShield.style.display = 'none';
+
             if (driveFrame) driveFrame.style.display = 'none';
             video.style.display = 'block';
             if (customControls) customControls.style.display = 'flex';
