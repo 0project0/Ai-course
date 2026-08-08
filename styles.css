@@ -1,0 +1,1005 @@
+/* ====================================================================
+   🎨 Sheren AI Video Masterclass - Style System
+   ==================================================================== */
+
+:root {
+    /* Color Palette */
+    --bg-dark: #0a0c14;
+    --bg-surface: #121524;
+    --card-bg: rgba(22, 27, 46, 0.75);
+    --card-hover: rgba(30, 36, 62, 0.9);
+    --glass-border: rgba(120, 119, 198, 0.2);
+    --glass-border-active: rgba(168, 85, 247, 0.5);
+
+    /* Accents & Gradients */
+    --primary: #8b5cf6;
+    --primary-hover: #7c3aed;
+    --primary-glow: rgba(139, 92, 246, 0.35);
+    --cyan-accent: #06b6d4;
+    --pink-accent: #ec4899;
+    --gradient-brand: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #06b6d4 100%);
+    --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    
+    /* Text Colors */
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
+
+    /* Status Colors */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    /* Layout Dimensions */
+    --header-height: 76px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    
+    /* Fonts */
+    --font-ar: 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-en: 'Outfit', system-ui, sans-serif;
+}
+
+/* Reset & Base Security Rules */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.protected-body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-ar);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    /* Anti-copy CSS rules */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Images & Videos anti-drag */
+img, video {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: auto;
+}
+
+/* Ambient Background Lights */
+.ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.25;
+}
+.glow-top-right {
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+}
+.glow-bottom-left {
+    bottom: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.primary-btn {
+    background: var(--gradient-brand);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font-ar);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.primary-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+
+/* ====================================================================
+   📌 Main Header
+   ==================================================================== */
+.main-header {
+    height: var(--header-height);
+    background: rgba(18, 21, 36, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo-img {
+    height: 44px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+    transition: transform 0.2s ease;
+}
+
+.brand-logo-img:hover {
+    transform: scale(1.04);
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: 800;
+    font-family: var(--font-en);
+    letter-spacing: 0.5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge-ai {
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid var(--primary);
+    color: #c084fc;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.brand-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.course-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.instructor-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 6px 14px 6px 18px;
+    border-radius: 40px;
+}
+
+.instructor-avatar {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-family: var(--font-en);
+    color: white;
+    font-size: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border-active);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bio-avatar-img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.instructor-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.instructor-title {
+    font-size: 10px;
+    color: var(--text-dim);
+}
+
+.instructor-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f472b6;
+}
+
+/* ====================================================================
+   🖥️ App Main Grid Layout
+   ==================================================================== */
+.app-main {
+    padding: 32px 0;
+    flex: 1;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 28px;
+    align-items: start;
+}
+
+/* ====================================================================
+   🎥 Player Section & Custom HTML5 Player
+   ==================================================================== */
+.player-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lesson-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.lesson-breadcrumbs span.active {
+    color: var(--cyan-accent);
+    font-weight: 600;
+}
+
+.current-lesson-heading {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--text-main);
+}
+
+/* Video Wrapper */
+.video-player-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.custom-video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #000;
+}
+
+/* Custom Controls Overlay Bar */
+.custom-controls-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(10, 12, 20, 0.95) 0%, rgba(10, 12, 20, 0.6) 70%, transparent 100%);
+    padding: 16px 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.video-player-wrapper:hover .custom-controls-bar {
+    opacity: 1;
+}
+
+/* Progress Slider */
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: height 0.15s ease;
+}
+
+.progress-container:hover {
+    height: 9px;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-brand);
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-glow);
+    opacity: 1;
+    transition: transform 0.1s ease;
+}
+
+.progress-container:hover .progress-bar-fill::after {
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.progress-buffer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls-left, .controls-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--cyan-accent);
+}
+
+.time-display {
+    font-size: 13px;
+    font-family: var(--font-en);
+    color: var(--text-muted);
+    margin-right: 8px;
+    direction: ltr;
+}
+
+.volume-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.volume-slider {
+    width: 70px;
+    height: 4px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.speed-menu-wrapper {
+    position: relative;
+}
+
+.speed-btn {
+    width: auto;
+    padding: 0 10px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-en);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.speed-options {
+    position: absolute;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(18, 21, 36, 0.95);
+    border: 1px solid var(--glass-border-active);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 20;
+}
+
+.speed-menu-wrapper:hover .speed-options {
+    opacity: 1;
+    visibility: visible;
+}
+
+.speed-options button {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-en);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+
+}
+
+.speed-options button.active, .speed-options button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ====================================================================
+   🧭 Navigation Lesson Bar (Prev / Complete / Next)
+   ==================================================================== */
+.lesson-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+}
+
+.nav-lesson-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-ar);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-lesson-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.nav-lesson-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.complete-btn {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #34d399;
+}
+
+.complete-btn:hover {
+    background: rgba(16, 185, 129, 0.25) !important;
+}
+
+.complete-btn.completed {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+/* ====================================================================
+   📝 Lesson Details Card & Tabs
+   ==================================================================== */
+.lesson-details-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    color: var(--cyan-accent);
+}
+
+.details-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.details-header i {
+    font-size: 20px;
+}
+
+.lesson-description {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+}
+
+.resource-card:hover {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.resource-card span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.resource-card i {
+    color: var(--cyan-accent);
+    font-size: 18px;
+}
+
+/* Instructor Bio */
+.instructor-bio {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bio-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bio-avatar {
+    width: 54px;
+    height: 54px;
+    background: var(--gradient-brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: var(--font-en);
+    color: white;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.bio-header h3 {
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.bio-tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.bio-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* ====================================================================
+   📚 Sidebar Section & Course Syllabus Accordion
+   ==================================================================== */
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Progress Card */
+.progress-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.percent-badge {
+    font-family: var(--font-en);
+    color: var(--cyan-accent);
+    background: rgba(6, 182, 212, 0.15);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.progress-bar-bg {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill-main {
+    height: 100%;
+    background: var(--gradient-brand);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.progress-stats {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    font-size: 18px;
+}
+
+.search-box input {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    padding: 12px 44px 12px 16px;
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-family: var(--font-ar);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Accordion Syllabus */
+.syllabus-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.module-item {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.module-header {
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.module-header:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.module-title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.module-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.module-count {
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.module-toggle-icon {
+    color: var(--text-muted);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.module-item.open .module-toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Lessons List in Accordion */
+.lessons-list {
+    display: none;
+    flex-direction: column;
+    background: rgba(10, 12, 20, 0.4);
+    border-top: 1px solid var(--glass-border);
+}
+
+.module-item.open .lessons-list {
+    display: flex;
+}
+
+.lesson-item {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+}
+
+.lesson-item:last-child {
+    border-bottom: none;
+}
+
+.lesson-item:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.lesson-item.active {
+    background: rgba(139, 92, 246, 0.2);
+    border-right: 4px solid var(--primary);
+}
+
+.lesson-title-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.lesson-status-icon {
+    font-size: 18px;
+    color: var(--text-dim);
+}
+
+.lesson-item.completed .lesson-status-icon {
+    color: var(--success);
+}
+
+.lesson-item.active .lesson-status-icon {
+    color: var(--cyan-accent);
+}
+
+.lesson-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.lesson-item.active .lesson-name {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.lesson-duration {
+    font-size: 11px;
+    font-family: var(--font-en);
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* ====================================================================
+   🔻 Main Footer
+   ==================================================================== */
+.main-footer {
+    background: rgba(10, 12, 20, 0.95);
+    border-top: 1px solid var(--glass-border);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.security-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--success);
+    font-size: 12px;
+}
+
+/* Responsive Mobile Layout */
+@media (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .header-center {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .brand-sub {
+        display: none;
+    }
+
+    .instructor-info {
+        display: none;
+    }
+
+    .current-lesson-heading {
+        font-size: 18px;
+    }
+
+    .details-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .controls-left, .controls-right {
+        gap: 6px;
+    }
+
+    .volume-wrapper {
+        display: none;
+    }
+}

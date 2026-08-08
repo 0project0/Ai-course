@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheren AI Masterclass | كورس صناعة وتعديل الفيديوهات بالذكاء الاصطناعي</title>
+    <meta name="description" content="تعلم صناعة الفيديوهات السينمائية والمونتاج الاحترافي بالذكاء الاصطناعي مع المدربة شيرين Sheren">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Google Fonts (Cairo & Outfit) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="protected-body">
+
+    <!-- Background Ambient Glow Effects -->
+    <div class="ambient-glow glow-top-right"></div>
+    <div class="ambient-glow glow-bottom-left"></div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="brand-wrapper">
+                <div class="brand-logo">
+                    <img src="logo.png" alt="Sheren AI Logo" class="brand-logo-img">
+                    <div class="logo-text">
+                        <span class="brand-name">Sheren <span class="badge-ai">AI Academy</span></span>
+                        <span class="brand-sub">صناعة وتعديل الفيديوهات بالذكاء الاصطناعي</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <div class="course-badge">
+                    <i class="ri-film-line"></i>
+                    <span>الكورس الشامل 2026</span>
+                </div>
+            </div>
+
+            <div class="instructor-profile">
+                <div class="instructor-avatar">
+                    <img src="logo.png" alt="Sheren Logo" class="avatar-img">
+                </div>
+                <div class="instructor-info">
+                    <span class="instructor-title">إعداد وتقديم</span>
+                    <span class="instructor-name">أ. شيرين (Sheren)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Grid -->
+    <main class="app-main">
+        <div class="container main-layout">
+            
+            <!-- Left Side: Video Player Area & Lesson Info -->
+            <section class="player-section">
+                
+                <!-- Current Lesson Meta Header -->
+                <div class="lesson-meta-header">
+                    <div class="lesson-breadcrumbs">
+                        <span id="currentModuleTitle">الوحدة الأولى</span>
+                        <i class="ri-arrow-left-s-line"></i>
+                        <span id="currentLessonBreadcrumb" class="active">مرحباً بك في الكورس</span>
+                    </div>
+                    <h1 id="currentLessonTitle" class="current-lesson-heading">مرحباً بك في الكورس - نظرة عامة وخطة العمل</h1>
+                </div>
+
+                <!-- Custom HTML5 Video Player Container -->
+                <div class="video-player-wrapper" id="playerWrapper">
+                    
+                    <!-- Video Element with direct download/context menu protections -->
+                    <video 
+                        id="courseVideo" 
+                        class="custom-video-element"
+                        controlslist="nodownload noplaybackrate"
+                        disablepictureinpicture
+                        playsinline 
+                        preload="metadata"
+                        oncontextmenu="return false;"
+                        controls="false"
+                    >
+                        <source id="videoSource" src="" type="video/mp4">
+                        عذراً، متصفحك لا يدعم تشغيل الفيديوهات المباشرة.
+                    </video>
+
+                    <!-- Custom Controls Bar (Protects against direct right-click download) -->
+                    <div class="custom-controls-bar" id="customControls">
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar-fill" id="progressBar"></div>
+                            <div class="progress-buffer" id="bufferBar"></div>
+                        </div>
+
+                        <div class="controls-row">
+                            <div class="controls-left">
+                                <button class="control-btn" id="playPauseBtn" title="تشغيل / إيقاف (Space)">
+                                    <i class="ri-play-fill" id="playIcon"></i>
+                                </button>
+                                <button class="control-btn" id="rewindBtn" title="تأخير 10 ثواني">
+                                    <i class="ri-replay-10-line"></i>
+                                </button>
+                                <button class="control-btn" id="forwardBtn" title="تقديم 10 ثواني">
+                                    <i class="ri-forward-10-line"></i>
+                                </button>
+
+                                <div class="time-display">
+                                    <span id="currentTime">00:00</span> / <span id="totalDuration">00:00</span>
+                                </div>
+                            </div>
+
+                            <div class="controls-right">
+                                <!-- Speed Dropdown -->
+                                <div class="speed-menu-wrapper">
+                                    <button class="control-btn speed-btn" id="speedBtn" title="سرعة التشغيل">
+                                        <span id="speedLabel">1.0x</span>
+                                    </button>
+                                    <div class="speed-options" id="speedOptions">
+                                        <button data-speed="0.75">0.75x</button>
+                                        <button data-speed="1.0" class="active">1.0x (العادي)</button>
+                                        <button data-speed="1.25">1.25x</button>
+                                        <button data-speed="1.5">1.5x</button>
+                                        <button data-speed="2.0">2.0x</button>
+                                    </div>
+                                </div>
+
+                                <!-- Volume Slider -->
+                                <div class="volume-wrapper">
+                                    <button class="control-btn" id="volumeMuteBtn" title="كتم الصوت">
+                                        <i class="ri-volume-up-line" id="volumeIcon"></i>
+                                    </button>
+                                    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="1">
+                                </div>
+
+                                <!-- Fullscreen -->
+                                <button class="control-btn" id="fullscreenBtn" title="ملء الشاشة">
+                                    <i class="ri-fullscreen-line" id="fullscreenIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls (Previous / Next Lesson) -->
+                <div class="lesson-navigation-bar">
+                    <button id="prevLessonBtn" class="nav-lesson-btn prev-btn" disabled>
+                        <i class="ri-arrow-right-line"></i>
+                        <span>الدرس السابق</span>
+                    </button>
+                    
+                    <button id="markCompleteBtn" class="nav-lesson-btn complete-btn">
+                        <i class="ri-checkbox-circle-line"></i>
+                        <span id="completeBtnText">تحديد كـ مكتمل</span>
+                    </button>
+
+                    <button id="nextLessonBtn" class="nav-lesson-btn next-btn">
+                        <span>الدرس التالي</span>
+                        <i class="ri-arrow-left-line"></i>
+                    </button>
+                </div>
+
+                <!-- Lesson Info & Description -->
+                <div class="lesson-details-card">
+                    <div class="details-header">
+                        <i class="ri-file-text-line"></i>
+                        <h2>تفاصيل الدرس</h2>
+                    </div>
+                    <p id="lessonDescriptionText" class="lesson-description">
+                        جاري تحميل تفاصيل الدرس...
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Right Side: Sidebar Course Syllabus & Search -->
+            <aside class="sidebar-section">
+                
+                <!-- Course Progress Card -->
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <span>تقدمك في الكورس</span>
+                        <span id="progressPercentText" class="percent-badge">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="courseProgressFill" class="progress-bar-fill-main" style="width: 0%;"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <span><i class="ri-checkbox-circle-fill"></i> مكتمل: <strong id="completedCount">0</strong> من <strong id="totalLessonsCount">0</strong></span>
+                    </div>
+                </div>
+
+                <!-- Lessons Search Box -->
+                <div class="search-box">
+                    <i class="ri-search-2-line search-icon"></i>
+                    <input type="text" id="lessonSearchInput" placeholder="ابحث في دروس الكورس..." autocomplete="off">
+                </div>
+
+                <!-- Accordion Syllabus Modules List -->
+                <div class="syllabus-accordion" id="syllabusAccordion">
+                    <!-- Modules and lessons will be injected here via app.js -->
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>جميع الحقوق محفوظة © 2026 - كورس الذكاء الاصطناعي تقديم <strong>Sheren</strong></p>
+            <div class="security-tag">
+                <i class="ri-lock-2-line"></i> منصة تعليمية محمية
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Dataset file -->
+    <script src="videos-data.js"></script>
+
+    <!-- Main Logic & Protection Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
