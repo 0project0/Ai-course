@@ -18,7 +18,7 @@ const COURSE_DATA = {
                     id: "lesson-1",
                     title: "1. المقدمة والترحيب بك في الكورس",
                     duration: "فيديو 1",
-                    videoUrl: "videos/المقدمة 1/المقدمة -مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=14PsMIDCsy0kklF4uDhfgA7__WovlCqNO",
                     description: "نظرة عامة على محتوى الكورس والأهداف الرئيسية وخارطة الطريق لتحويل أفكارك إلى فيديوهات سينمائية بالذكاء الاصطناعي مع شيرين.",
                     resources: [
                         { name: "📄 ملخص خطة العمل في الكورس (PDF)", url: "#" }
@@ -28,7 +28,7 @@ const COURSE_DATA = {
                     id: "lesson-2",
                     title: "2. كتابة السكربت الإعلاني بالذكاء الاصطناعي",
                     duration: "فيديو 2",
-                    videoUrl: "videos/كتابة السكربت2/كتابة السكربت-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1752d9u5QREdqsiwrI4k3GLBAbt0BBnEP",
                     description: "شرح كيفية استغلال نماذج الذكاء الاصطناعي لكتابة سكربت إعلاني جذاب واحترافي مقسم على مشاهد منسقة.",
                     resources: [
                         { name: "📝 نماذج سكربتات جاهزة للإعلانات", url: "#" }
@@ -38,7 +38,7 @@ const COURSE_DATA = {
                     id: "lesson-3",
                     title: "3. تصميم شخصية وبيئة الإعلان بالـ AI",
                     duration: "فيديو 3",
-                    videoUrl: "videos/عمل شخصية وبيئة الاعلان3/عمل شخصية وبيئة الاعلان-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1H-i4vpdxZSMb-LTYFZ9ObnNppnmVn9G-",
                     description: "طريقة توليد شخصية متناسقة وبيئات إعلانية بدقة عالية تتماشى مع فكرة السكربت والهوية البصرية.",
                     resources: []
                 }
@@ -53,7 +53,7 @@ const COURSE_DATA = {
                     id: "lesson-4",
                     title: "4. شرح واجهة وأدوات موقع Flow",
                     duration: "فيديو 4",
-                    videoUrl: "videos/شرح واجهة موقع flow4/شرح واجهة موقع Flow-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1Gup9NvoC_RQj0rf0AUOHkYnelcxmkJ7W",
                     description: "جولة تفصيلية داخل موقع Flow للتعرف على الأدوات، الإعدادات، وأفضل الخيارات للتوليد السينمائي.",
                     resources: [
                         { name: "🔗 رابط موقع Flow الرئيسي", url: "https://flow.com" }
@@ -63,7 +63,7 @@ const COURSE_DATA = {
                     id: "lesson-5",
                     title: "5. عمل صورة أول المشاهد وتحريكها",
                     duration: "فيديو 5",
-                    videoUrl: "videos/5عمل صورة اول المشاهد وتحريكها/عمل صورة اول المشاهد وتحريكها-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1FIoL8uWZ16s7k_1yc34KoABx3fwNaaXU",
                     description: "التطبيق العملي لبناء أول مشهد وتحديد اتجاه حركة الكاميرا والإضاءة لإخراج فيديو ناعم وسلس.",
                     resources: []
                 },
@@ -71,7 +71,7 @@ const COURSE_DATA = {
                     id: "lesson-6",
                     title: "6. تكملة وتوليد باقي مشاهد الفيديو",
                     duration: "فيديو 6",
-                    videoUrl: "videos/6تكملة باقي المشاهد/تكملة باقي المشاهد-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1PgY4BQdGHqAWvI-hfSoVUfPHOUoyCsTa",
                     description: "استكمال توليد السلسلة الكاملة للمشاهد المتبقية للفيلم/الإعلان مع الحفاظ على تناسق الألوان والشخصية.",
                     resources: []
                 }
@@ -86,7 +86,7 @@ const COURSE_DATA = {
                     id: "lesson-7",
                     title: "7. إنشاء عمل التعليق الصوتي (Voiceover)",
                     duration: "فيديو 7",
-                    videoUrl: "videos/7عمل التعليق الصوتي/عمل التعليق الصوتي-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1Na5DEwkwLGc20yF_wyOfAG0z-KaU-ZaU",
                     description: "طريقة تحويل السكربت إلى صوت بشر طبيعي جداً باللغة العربية مع ضبط الأداء والمشاعر.",
                     resources: [
                         { name: "🔗 موقع أدوات الهندسة الصوتية", url: "#" }
@@ -96,7 +96,7 @@ const COURSE_DATA = {
                     id: "lesson-8",
                     title: "8. مونتاج الفيديو وتركيب وتناسق الموسيقى",
                     duration: "فيديو 8",
-                    videoUrl: "videos/8مونتاج الفيديو وعمل موسيقى/مونتاج الفيديو وعمل موسيقى مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=19nkPdmqSp88MKHiuvEkRZ0wZvvBzUzEf",
                     description: "تجميع كافة المشاهد في برنامج المونتاج، ضبط التوقيتات، ودمج الموسيقى التيكتيكية بنقاء عالٍ.",
                     resources: []
                 },
@@ -104,7 +104,7 @@ const COURSE_DATA = {
                     id: "lesson-9",
                     title: "9. استخدام الـ AI في المونتاج السريع والاحترافي",
                     duration: "فيديو 9",
-                    videoUrl: "videos/11استخدام الai في المونتاج/استخدام الai في المونتاج-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1ZukUFEJEmA_84-N3U-OQFk_UNCLRw-Ue",
                     description: "توظيف تقنيات الذكاء الاصطناعي لتسريع عمليات المونتاج، القطعات الذكية، وإضافة المؤثرات البصرية.",
                     resources: []
                 }
@@ -119,7 +119,7 @@ const COURSE_DATA = {
                     id: "lesson-10",
                     title: "10. أفضل المواقع التي تستحق الاشتراك في الـ AI",
                     duration: "فيديو 10",
-                    videoUrl: "videos/9افضل المواقع اللي تستحق الاشتراك/افضل المواقع اللي تستحق الاشتراك-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1zQ7XU9MTojmJf5-HKstYiNWG0OX-aXRW",
                     description: "مراجعة وترشيح لأفضل وأقوى المنصات والأدوات المدفوعة والمجانية التي تعطي أفضل قيمة مقابل السعر.",
                     resources: [
                         { name: "📋 قائمة أفضل مواقع الذكاء الاصطناعي الموصى بها", url: "#" }
@@ -129,7 +129,7 @@ const COURSE_DATA = {
                     id: "lesson-11",
                     title: "11. كيفية عمل فيديو يتجاوز 10 ثواني على Flow",
                     duration: "فيديو 11",
-                    videoUrl: "videos/كيفية عمل فيديو فوق ال10 ثواني على flow10/كيفية عمل فيديو فوق ال10 ثواني على Flow-مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1Go1uDRRlRi1Tij7cF7R2R1YcC8pepPhm",
                     description: "سر وتكنيك زيادة مخرج فيديو الذكاء الاصطناعي ليتجاوز الـ 10 ثواني دون انقطاع الجودة أو المشهد.",
                     resources: []
                 },
@@ -137,7 +137,7 @@ const COURSE_DATA = {
                     id: "lesson-12",
                     title: "12. الخاتمة والمشروع التطبيقي الكامل",
                     duration: "فيديو 12",
-                    videoUrl: "videos/12الخاتمة والمشروع التطبيقي/الخاتمة والمشروع التطبيقي مخفف.mp4",
+                    videoUrl: "https://drive.google.com/uc?export=download&id=1ue1bKgo6go9gLPnQx7zU4sZJZpx3xULn",
                     description: "الملخص النهائي للكورس وتطبيق شامل خطوة بخطوة لمشروعك الإعلاني النهائي ومناصحة التصدير للنشر.",
                     resources: [
                         { name: "🎓 شهادة إتمام كورس صناعة الفيديوهات مع شيرين", url: "#" }
