@@ -349,6 +349,26 @@ img, video {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.15);
 }
 
+/* Google Drive Protection & Pop-out Cropping */
+.drive-video-frame {
+    width: 100%;
+    height: calc(100% + 56px);
+    margin-top: -56px;
+    border: none;
+    display: block;
+}
+
+.drive-top-shield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 50;
+    background: transparent;
+    pointer-events: auto;
+}
+
 .custom-video-element {
     width: 100%;
     height: 100%;
@@ -1003,4 +1023,3 @@ img, video {
         display: none;
     }
 }
-
